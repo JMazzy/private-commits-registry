@@ -3,7 +3,7 @@ require 'time'
 def committer(time)
   time.xmlschema.to_s
 
-  `cd ~/Copy/Viking/web_scraping/private_commits_registry`
+  # `cd ~/Copy/Viking/web_scraping/private_commits_registry`
 
   readme = File.open("README.md", "a")
   readme.puts("I just did a private commit!")
