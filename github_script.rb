@@ -6,7 +6,7 @@ def committer(time)
   # `cd ~/Copy/Viking/web_scraping/private_commits_registry`
 
   readme = File.open("README.md", "a")
-  readme.puts("I just did a private commit!")
+  readme.puts("I just did a private commit! The time is: #{time}")
   readme.close
 
   `git add -A`
