@@ -33,12 +33,13 @@ class GithubPrivateCommitter
 
   def get_commits(repo_name)
     sleep(0.1)
-    @github.repos.commits.list(USER_NAME, repo_name, '...')
+    commits = @github.repos.commits.list(USER_NAME, repo_name, '...')
+    commits.select { |commit| commit["author"]["login"].downcase == USER_NAME.downcase }
   end
 end
 
 gpc = GithubPrivateCommitter.new
-
+pp gpc.get_commits('assignment_ruby_api_calls')
 gpc.get_commits('assignment_ruby_api_calls').each do |commit|
   gpc.committer(commit["commit"]["committer"]["date"])
 end
